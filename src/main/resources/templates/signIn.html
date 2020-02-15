@@ -13,7 +13,7 @@
 <body>
 
 	<div class="header">
-		<h1 class="primary-message">Sign In</h1>
+		<h1 class="primary-message">Welcome!</h1>
 	</div>
 		
 	<div id="main" class="main">
@@ -23,6 +23,11 @@
 
 		<form action="/" method="POST" onsubmit="return validateForm();" class="inputContent">
 			<!-- TODO: Form input elements -->
+			<lable for="employeeId">Employee ID</lable>
+			<input type="number" id="employeeId" name="employeeId"><br><br>
+			<lable for="password">Password</lable>
+			<input type="password" id="password" name="password"><br><br>
+			<input type="submit" value="Sign In">
 		</form>
 	</div>
 		
