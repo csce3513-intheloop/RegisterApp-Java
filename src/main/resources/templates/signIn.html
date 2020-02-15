@@ -30,7 +30,35 @@
 			<input type="submit" value="Sign In">
 		</form>
 	</div>
-		
+	<script>
+		function validateForm() {
+			var employeeId = document.formsgetElementById("naemployeeIdme").value;
+			var password = document.formsgetElementById("password").value;
+			var idEmpty = "The employee ID field must not be empty.";
+			var passwordEmpty = "The password field must not be empty.";
+			var notNum = "The employee ID field must be a number.";
+			
+			if ((!employeeId)&&(!password)){
+				document.getElementById("msg").innerHTML=firstEmpty+lastEmpty;
+				return false;	
+			}
+			else if ((employeeId != "")&&(last == "")){
+				document.getElementById("msg").innerHTML=passwordEmpty;
+				return false;
+			}
+			else if ((employeeId == "")&&(last != "")){
+				document.getElementById("msg").innerHTML=idEmpty;
+				return false;
+			}
+			else if (employeeId == NaN){
+				document.getElementById("msg").innerHTML=notNum;
+				return false;
+			}
+			else{
+				return true;
+			}
+		}	
+	</script>
 </body>
 
 </html>
