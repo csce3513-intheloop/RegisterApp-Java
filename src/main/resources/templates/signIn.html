@@ -28,11 +28,12 @@
 			<lable for="password">Password</lable>
 			<input type="password" id="password" name="password"><br><br>
 			<input type="submit" value="Sign In">
+			<div style="color:red" id = "msg"></div>
 		</form>
 	</div>
 	<script>
 		function validateForm() {
-			var employeeId = document.formsgetElementById("naemployeeIdme").value;
+			var employeeId = document.formsgetElementById("employeeId").value;
 			var password = document.formsgetElementById("password").value;
 			var idEmpty = "The employee ID field must not be empty.";
 			var passwordEmpty = "The password field must not be empty.";
