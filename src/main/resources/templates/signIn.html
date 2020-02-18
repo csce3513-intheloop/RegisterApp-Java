@@ -23,7 +23,7 @@
             <h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
         </div>
 
-        <form action="/" method="POST" onsubmit="return validateForm();" class="inputContent">
+        <form action="mainMenu.html" method="POST" name="signIn" onsubmit="return validateForm();" class="inputContent">
             <!-- TODO: Form input elements -->
             <lable for="employeeId">Employee ID</lable>
             <input type="number" id="employeeId" name="employeeId"><br><br>
@@ -35,19 +35,19 @@
     </div>
     <script>
         function validateForm() {
-            var employeeId = document.formsgetElementById("employeeId").value;
-            var password = document.formsgetElementById("password").value;
+            var employeeId = document.forms["signIn"]["employeeId"].value;
+            var password = document.forms["signIn"]["password"].value;
             var idEmpty = "The employee ID field must not be empty.";
             var passwordEmpty = "The password field must not be empty.";
             var notNum = "The employee ID field must be a number.";
 
             if ((!employeeId) && (!password)) {
-                document.getElementById("msg").innerHTML = firstEmpty + lastEmpty;
+                document.getElementById("msg").innerHTML = idEmpty + passwordEmpty;
                 return false;
-            } else if ((employeeId != "") && (last == "")) {
+            } else if ((employeeId != "") && (password == "")) {
                 document.getElementById("msg").innerHTML = passwordEmpty;
                 return false;
-            } else if ((employeeId == "") && (last != "")) {
+            } else if ((employeeId == "") && (password != "")) {
                 document.getElementById("msg").innerHTML = idEmpty;
                 return false;
             } else if (employeeId == NaN) {
