@@ -10,7 +10,7 @@
     <script type="text/javascript" src="/scripts/signIn.js" defer></script>
 </head>
 
-<body>
+<body bgcolor=" aqua">
 
     <div class="header">
         <h1 class="primary-message">
@@ -25,9 +25,9 @@
 
         <form action="mainMenu.html" method="POST" name="signIn" onsubmit="return validateForm();" class="inputContent">
             <!-- TODO: Form input elements -->
-            <lable for="employeeId">Employee ID</lable>
+            <lable for="employeeId">Employee ID :</lable>
             <input type="number" id="employeeId" name="employeeId"><br><br>
-            <lable for="password">Password</lable>
+            <lable for="password">Password :&nbsp;&ensp;&ensp;&nbsp;</lable>
             <input type="password" id="password" name="password"><br><br>
             <input type="submit" value="Sign In">
             <div style="color:red" id="msg"></div>
@@ -35,27 +35,25 @@
     </div>
     <script>
         function validateForm() {
+
+
             var employeeId = document.forms["signIn"]["employeeId"].value;
             var password = document.forms["signIn"]["password"].value;
-            var idEmpty = "The employee ID field must not be empty.";
-            var passwordEmpty = "The password field must not be empty.";
-            var notNum = "The employee ID field must be a number.";
 
-            if ((!employeeId) && (!password)) {
-                document.getElementById("msg").innerHTML = idEmpty + passwordEmpty;
+            if ((employeeId == '') && (password == '')) {
+                document.getElementById("msg").innerHTML = "The employee ID  and password fields must not be empty."
                 return false;
-            } else if ((employeeId != "") && (password == "")) {
-                document.getElementById("msg").innerHTML = passwordEmpty;
+            } else if (employeeId == "") {
+                document.getElementById("msg").innerHTML = "The employee ID field must not be empty.";
                 return false;
-            } else if ((employeeId == "") && (password != "")) {
-                document.getElementById("msg").innerHTML = idEmpty;
+            } else if (password == "") {
+                document.getElementById("msg").innerHTML = "The password field must not be empty.";
                 return false;
-            } else if (employeeId == NaN) {
-                document.getElementById("msg").innerHTML = notNum;
-                return false;
-            } else {
-                return true;
             }
+
+            return true;
+
+
         }
     </script>
 </body>
