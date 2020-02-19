@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import antlr.StringUtils;
 import edu.uark.registerapp.commands.products.ProductCreateCommand;
 import edu.uark.registerapp.commands.products.ProductDeleteCommand;
 import edu.uark.registerapp.commands.products.ProductUpdateCommand;
@@ -24,51 +25,34 @@ import edu.uark.registerapp.models.api.Product;
 @RequestMapping(value = "/api/product")
 public class ProductRestController extends BaseRestController {
 	@RequestMapping(value = "/", method = RequestMethod.POST)
-	public @ResponseBody ApiResponse createProduct(
-		@RequestBody final Product product,
-		final HttpServletRequest request,
-		final HttpServletResponse response
-	) {
+	public @ResponseBody ApiResponse createProduct(@RequestBody final Product product, final HttpServletRequest request,
+			final HttpServletResponse response) {
 
-		final ApiResponse elevatedUserResponse =
-			this.redirectUserNotElevated(
-				request,
-				response,
+		final ApiResponse elevatedUserResponse = this.redirectUserNotElevated(request, response,
 				ViewNames.PRODUCT_LISTING.getRoute());
 
 		if (!elevatedUserResponse.getRedirectUrl().equals(StringUtils.EMPTY)) {
 			return elevatedUserResponse;
 		}
 
-		return this.productCreateCommand
-			.setApiProduct(product)
-			.execute();
+		return this.productCreateCommand.setApiProduct(product).execute();
 	}
 
 	@RequestMapping(value = "/{productId}", method = RequestMethod.PUT)
-	public @ResponseBody ApiResponse updateProduct(
-		@PathVariable final UUID productId,
-		@RequestBody final Product product
-	) {
+	public @ResponseBody ApiResponse updateProduct(@PathVariable final UUID productId,
+			@RequestBody final Product product) {
 
 		// TODO: Verify that the user associated with the current session is elevated
 
-		return this.productUpdateCommand
-			.setProductId(productId)
-			.setApiProduct(product)
-			.execute();
+		return this.productUpdateCommand.setProductId(productId).setApiProduct(product).execute();
 	}
 
 	@RequestMapping(value = "/{productId}", method = RequestMethod.DELETE)
-	public @ResponseBody ApiResponse deleteProduct(
-		@PathVariable final UUID productId
-	) {
+	public @ResponseBody ApiResponse deleteProduct(@PathVariable final UUID productId) {
 
 		// TODO: Verify that the user associated with the current session is elevated
 
-		this.productDeleteCommand
-			.setProductId(productId)
-			.execute();
+		this.productDeleteCommand.setProductId(productId).execute();
 
 		return new ApiResponse();
 	}
@@ -76,10 +60,10 @@ public class ProductRestController extends BaseRestController {
 	// Properties
 	@Autowired
 	private ProductCreateCommand productCreateCommand;
-	
+
 	@Autowired
 	private ProductDeleteCommand productDeleteCommand;
-	
+
 	@Autowired
 	private ProductUpdateCommand productUpdateCommand;
 }
