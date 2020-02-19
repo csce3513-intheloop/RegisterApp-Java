@@ -1,0 +1,61 @@
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Register - Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="/styles/master.css">
+
+    <script type="text/javascript" src="/scripts/master.js" defer></script>
+    <script type="text/javascript" src="/scripts/signIn.js" defer></script>
+</head>
+
+<body bgcolor=" aqua">
+
+    <div class="header">
+        <h1 class="primary-message">
+            <center><strong>You are now in the Loop!</strong> </center>
+        </h1>
+    </div>
+
+    <div id="main" class="main">
+        <div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
+            <h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
+        </div>
+
+        <form action="mainMenu.html" method="POST" name="signIn" onsubmit="return validateForm();" class="inputContent">
+            <!-- TODO: Form input elements -->
+            <lable for="employeeId">Employee ID :</lable>
+            <input type="number" id="employeeId" name="employeeId"><br><br>
+            <lable for="password">Password :&nbsp;&ensp;&ensp;&nbsp;</lable>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="Sign In">
+            <div style="color:red" id="msg"></div>
+        </form>
+    </div>
+    <script>
+        function validateForm() {
+
+
+            var employeeId = document.forms["signIn"]["employeeId"].value;
+            var password = document.forms["signIn"]["password"].value;
+
+            if ((employeeId == '') && (password == '')) {
+                document.getElementById("msg").innerHTML = "The employee ID  and password fields must not be empty."
+                return false;
+            } else if (employeeId == "") {
+                document.getElementById("msg").innerHTML = "The employee ID field must not be empty.";
+                return false;
+            } else if (password == "") {
+                document.getElementById("msg").innerHTML = "The password field must not be empty.";
+                return false;
+            }
+
+            return true;
+
+
+        }
+    </script>
+</body>
+
+</html>
