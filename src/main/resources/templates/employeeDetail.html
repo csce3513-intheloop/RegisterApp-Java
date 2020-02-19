@@ -1,60 +1,62 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
 <head>
-	<title>Employee - Details</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <title>Employee - Details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<link rel="stylesheet" type="text/css" href="/styles/master.css">
-	<!--<link rel="stylesheet" type="text/css" href="/styles/employeeDetail.css">-->
+    <link rel="stylesheet" type="text/css" href="/styles/master.css">
+    <!--<link rel="stylesheet" type="text/css" href="/styles/employeeDetail.css">-->
 
-	<script type="text/javascript" src="/scripts/master.js" defer></script>
-	<!--<script type="text/javascript" src="/scripts/employeeDetail.js" defer></script>-->
+    <script type="text/javascript" src="/scripts/master.js" defer></script>
+    <!--<script type="text/javascript" src="/scripts/employeeDetail.js" defer></script>-->
 </head>
 
 <body>
     <div class="header">
-		<h1 class="primary-message">Employee Detail</h1>
-	</div>
-    
+        <h1 class="primary-message">Employee Detail</h1>
+    </div>
+
     <div id="main" class="main">
-		<div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
-			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
-		</div>
+        <div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
+            <h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
+        </div>
 
         <form action="/">
             <input type="hidden" id="empRecordID" name="empRecordID">
             <!-- if employee info is valid-->
-            <input type="text" id="empRecord" name="empRecord" disabled>
+            <!-- <input type="text" id="empRecord" name="empRecord" disabled> -->
             <!-- else
             <input type="hidden" id="empRecord" name="empRecord" disabled>
             -->
-            <label for="fName">First Name:</label>
+            <label for="fName">First Name:&nbsp;&ensp;&ensp;&nbsp;&ensp;&nbsp;</label>
             <input type="text" id="fName" name="fName"><br><br>
 
-            <label for="lName">Lasr Name:</label>
+            <label for="lName">Last Name:&nbsp;&ensp;&ensp;&nbsp;&ensp;&nbsp;</label>
             <input type="text" id="lName" name="lName"><br><br>
 
-            <label for="password">Password:</label>
+            <label for="password">Password:&nbsp;&nbsp;&nbsp;&ensp;&ensp;&nbsp;&ensp;&nbsp;</label>
             <input type="text" id="password" name="password"><br><br>
 
-            <label for="confirmPassword">Confirm Password:</label>
+            <label for="confirmPassword">Verify Password:</label>
             <input type="text" id="confirmPassword" name="confirmPassword"><br><br>
-            
-            <label for="empType">Select Employee Type:</label>
+
+            <label for="empType">Employee Type:</label>
             <select id=empType>
                     <option value="Cashier"></option>
                     <option value="Shift Manager"></option>
                     <option value="General Manager"></option>
             </select>
-            
+            <br><br>
+
             <!--
             Button element w/ text: "Save"
                 HTTP PUT request to server
             -->
             <button type="submit" formmethod="/">Save</button>
+            <button type="onclick" formmethod="/">Sign Out</button>
         </form>
 
-    <!--
+        <!--
     Sign Out:
         Use image with design icon
         Sign out user and navigate to sign in
@@ -63,4 +65,5 @@
     </div>
 
 </body>
+
 </html>
