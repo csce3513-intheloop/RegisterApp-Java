@@ -31,17 +31,17 @@ function saveActionClick(event) {
 	const saveActionElement = event.target;
 	saveActionElement.disabled = true;
 
-	const productId = getProductId();
-	const productIdIsDefined = ((productId != null) && (productId.trim() !== ""));
+	const firstName = getfName();
+	const firstNameIsDefined = ((firstName != null) && (firstName.trim() !== ""));
 	const saveActionUrl = ("/api/product/"
-		+ (productIdIsDefined ? productId : ""));
+		+ (firstNameIsDefined ? firstName : ""));     //What is the url to save
 	const saveProductRequest = {
-		id: productId,
-		count: getProductCount(),
-		lookupCode: getProductLookupCode()
+		fname: firstName,
+		lname: getlName(),
+		password: getPassword()
 	};
-
-	if (productIdIsDefined) {
+/*
+	if (firstNameIsDefined) {
 		ajaxPut(saveActionUrl, saveProductRequest, (callbackResponse) => {
 			saveActionElement.disabled = false;
 
@@ -66,9 +66,9 @@ function saveActionClick(event) {
 				}
 			}
 		});
-	}
+	}*/
 };
-
+/*
 function validateSave() {
 	const lookupCode = getProductLookupCode();
 	if ((lookupCode == null) || (lookupCode.trim() === "")) {
@@ -106,11 +106,10 @@ function hideProductSavedAlertModal() {
 	}
 
 	getSavedAlertModalElement().style.display = "none";
-}
+}*/
 // End save
 
 // Getters and setters
-// get fname, lname, password, emptype
 function getfName() {
 	return getfNameElement().value;
 }
@@ -150,13 +149,4 @@ function setEmpType(empType) {
 function getEmpTypeElement() {
     return document.getElementById("empType");
 }   //Employee Type
-
-
-function getSaveActionElement() {
-	return document.getElementById("saveButton");
-}
-/*
-function getSavedAlertModalElement() {
-	return document.getElementById("productSavedAlertModal");
-}*/
 // End getters and setters
