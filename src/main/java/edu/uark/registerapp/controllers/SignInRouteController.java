@@ -1,6 +1,7 @@
 package edu.uark.registerapp.controllers;
 
 import java.util.Map;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -24,12 +25,12 @@ public class SignInRouteController extends BaseRouteController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView start(@RequestParam final Map<String, String> queryParameters) {
 		
-		//final Optional<ActiveEmployeeExistsQuery> ActiveEmployeeExistsQuery =
-		//	this.getCurrentUser(request);
+		// final Optional<ActiveEmployeeExistsQuery> ActiveEmployeeExistsQuery =
+		// 	this.getCurrentUser(request);
 		
-		//if (!ActiveEmployeeExistsQuery.isPresent()) {
-		//	return this.buildInvalidSessionResponse();
-		//}
+		// if (!ActiveEmployeeExistsQuery.isPresent()) {
+		// 	return this.buildInvalidSessionResponse();
+		// }
 		
 		ModelAndView modelAndView =
 			this.setErrorMessageFromQueryString(

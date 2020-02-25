@@ -10,6 +10,7 @@ import edu.uark.registerapp.commands.ResultCommandInterface;
 import edu.uark.registerapp.commands.exceptions.NotFoundException;
 import edu.uark.registerapp.commands.exceptions.UnprocessableEntityException;
 import edu.uark.registerapp.models.api.Employee;
+import edu.uark.registerapp.models.entities.ActiveUserEntity;
 import edu.uark.registerapp.models.entities.EmployeeEntity;
 import edu.uark.registerapp.models.repositories.EmployeeRepository;
 
