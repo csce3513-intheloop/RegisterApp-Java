@@ -12,6 +12,7 @@ import edu.uark.registerapp.commands.exceptions.UnprocessableEntityException;
 import edu.uark.registerapp.models.api.Employee;
 import edu.uark.registerapp.models.entities.EmployeeEntity;
 import edu.uark.registerapp.models.repositories.EmployeeRepository;
+import edu.uark.registerapp.models.entities.ActiveUserEntity;
 
 public class  ActiveEmployeeExistsQuery implements ResultCommandInterface<ActiveUserEntity> {
     @Override

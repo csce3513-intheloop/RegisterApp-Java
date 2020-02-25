@@ -24,17 +24,28 @@
 		<!-- TODO: Add the various action button elements -->
 		<form id="mainMenu">
 		<button type="button" id="startTxn">Start Txn</button><br>
-		<button type="button" id="startTxn">Product List</button><br>
+		<button type="button" id="startTxn" onclick="navigateList()">Product List</button><br>
 		<button type="button" id="startTxn">Emp Details</button><br>
 		<button type="button" id="cashierReport">Cashier Report</button><br><br>
-
+		<div style="color:red" id="msg"></div>
 	</div>
-
-
 
 	<div class="footer">
 		<button type="button" id="signOut" class="footer">Sign Out</button>
 	</div>
+	<script>
+		var errorMessage = "Functionality has not yet been implemented.";
+		document.getElementById("startTxn").addEventListener("click", message);
+		// (function(){ displayError(errorMessage);}));
+		function message(){
+			document.getElementById("msg").innerHTML ="Functionality has not yet been implemented.";
+		}
+		function navigateList(){
+			location.assign("");
+		}
+	</script>
+
+	
 		
 </body>
 
