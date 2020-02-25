@@ -1,0 +1,38 @@
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <title>Register - Sign In</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="static/styles/master.css">
+    <link rel="stylesheet" type="text/css" href="mainMenu.css">
+
+    <script type="text/javascript" src="static/scripts/master.js" defer></script>
+    <!--<script type="text/javascript" src="static/scripts/signIn.js" defer></script>-->
+</head>
+
+    <div class="header">
+        <h1 class="primary-message">
+            <center><strong>You are now in the Loop!</strong> </center>
+        </h1>
+    </div>
+
+    <div id="main" class="main">
+        <div id="error" th:class="${#strings.isEmpty(errorMessage)} ? hidden : ''">
+            <h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
+        </div>
+
+        <form action="employeeDetail.html" method="POST" name="signIn" class="inputContent">
+            <!-- TODO: Form input elements -->
+            <lable for="employeeId">Employee ID :</lable>
+            <input type="number" id="employeeId" name="employeeId" required><br><br>
+            <lable for="password">Password :&nbsp;&ensp;&ensp;&nbsp;</lable>
+            <input type="password" id="password" name="password"required><br><br>
+            <input type="submit" value="Sign In" class="btn">
+            <div style="color:rgb(51, 1, 1)" id="msg"></div>
+        </form>
+    </div>
+
+</body>
+
+</html>

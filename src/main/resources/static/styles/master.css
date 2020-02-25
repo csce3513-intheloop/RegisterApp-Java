@@ -1,3 +1,7 @@
+body {
+	background-color: purple;
+}
+
 div.header {
 	padding-top: 1px;
 	text-align: right;

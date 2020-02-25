@@ -10,8 +10,10 @@ import edu.uark.registerapp.commands.employees.helpers.EmployeeHelper;
 import edu.uark.registerapp.models.entities.EmployeeEntity;
 
 public class Employee extends ApiResponse {
-    private UUID id;
-    public UUID getId() {
+	
+	private UUID id;
+	
+	public UUID getId() {
     	return this.id;
     }
     public Employee setId(final UUID id) {
@@ -20,6 +22,7 @@ public class Employee extends ApiResponse {
 	}
 
 	private String employeeId;
+	
 	public String getEmployeeId() {
 		return this.employeeId;
 	}
@@ -33,6 +36,7 @@ public class Employee extends ApiResponse {
 	}
 
 	private String firstName;
+	
 	public String getFirstName() {
 		return this.firstName;
 	}
@@ -42,6 +46,7 @@ public class Employee extends ApiResponse {
 	}
 
 	private String lastName;
+	
 	public String getLastName() {
 		return this.lastName;
 	}
@@ -51,6 +56,7 @@ public class Employee extends ApiResponse {
 	}
 
 	private String password;
+	
 	public String getPassword() {
 		return this.password;
 	}
@@ -60,6 +66,7 @@ public class Employee extends ApiResponse {
 	}
 
 	private boolean isActive;
+	
 	public boolean getIsActive() {
 		return this.isActive;
 	}
@@ -69,6 +76,7 @@ public class Employee extends ApiResponse {
 	}
 
 	private int classification;
+	
 	public int getClassification() {
 		return this.classification;
 	}
@@ -78,6 +86,7 @@ public class Employee extends ApiResponse {
 	}
 
 	private UUID managerId;
+	
 	public UUID getManagerId() {
 		return this.managerId;
 	}
@@ -87,6 +96,7 @@ public class Employee extends ApiResponse {
 	}
 
 	private String createdOn;
+	
 	public String getCreatedOn() {
 		return this.createdOn;
 	}
@@ -102,6 +112,7 @@ public class Employee extends ApiResponse {
 	}
 
 	private boolean isInitialEmployee;
+	
 	public boolean getIsInitialEmployee() {
 		return this.isInitialEmployee;
 	}

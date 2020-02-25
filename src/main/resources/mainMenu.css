@@ -1,0 +1,26 @@
+.btn {
+    background-color: rgb(197, 52, 185);
+    border: none;
+    width: 190px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+};
+
+.signOut {
+    width: 190px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.btn:hover {
+    background-color: rgb(210, 230, 31);
+    width: 190px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}

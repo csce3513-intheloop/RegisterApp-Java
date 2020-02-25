@@ -3,6 +3,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 function validateForm() {
-	// TODO: Validate the user input
+	
 	return true;
 }

@@ -4,11 +4,11 @@
     <title>Employee - Details</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="/static/styles/master.css">
-    <!--<link rel="stylesheet" type="text/css" href="/styles/employeeDetail.css">-->
+    <link rel="stylesheet" type="text/css" href="static/styles/master.css">
+    <link rel="stylesheet" type="text/css" href="mainMenu.css">
 
-    <script type="text/javascript" src="/scripts/master.js" defer></script>
-    <!--<script type="text/javascript" src="/scripts/employeeDetail.js" defer></script>-->
+    <script type="text/javascript" src="static/scripts/master.js" defer></script>
+    <script type="text/javascript" src="static/scripts/employeeDetail.js" defer></script>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
         </div>
 
-        <form action="/">
+        <form action="" onsubmit="return validateForm();">
             <input type="hidden" id="empRecordID" name="empRecordID">
             <!-- if employee info is valid-->
             <!-- <input type="text" id="empRecord" name="empRecord" disabled> -->
@@ -29,31 +29,31 @@
             <input type="hidden" id="empRecord" name="empRecord" disabled>
             -->
             <label for="fName">First Name:&nbsp;&ensp;&ensp;&nbsp;&ensp;&nbsp;</label>
-            <input type="text" id="fName" name="fName"><br><br>
+            <input type="text" id="fName" name="fName" required><br><br>
 
             <label for="lName">Last Name:&nbsp;&ensp;&ensp;&nbsp;&ensp;&nbsp;</label>
-            <input type="text" id="lName" name="lName"><br><br>
+            <input type="text" id="lName" name="lName" required><br><br>
 
             <label for="password">Password:&nbsp;&nbsp;&nbsp;&ensp;&ensp;&nbsp;&ensp;&nbsp;</label>
-            <input type="text" id="password" name="password"><br><br>
+            <input type="password" id="password" name="password" required><br><br>
 
             <label for="confirmPassword">Verify Password:</label>
-            <input type="text" id="confirmPassword" name="confirmPassword"><br><br>
+            <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
 
             <label for="empType">Employee Type:</label>
-            <select id="empType">
-                    <option value="Cashier"></option>
-                    <option value="Shift Manager"></option>
-                    <option value="General Manager"></option>
+            <select id="empType" required>
+                    <option value="" selected="selected"></option>
+                    <option value="Cashier">Cashier</option>
+                    <option value="Shift Manager">Shift Manager</option>
+                    <option value="General Manager">General Manager</option>
             </select>
-            <br><br>
+            <br><p id='error1'></p><br>
 
             <!--
             Button element w/ text: "Save"
                 HTTP PUT request to server
             -->
-            <button type="submit">Save</button>
-            <button type="onclick" formmethod="/">Sign Out</button>
+            <button type="submit" class="btn">Save</button>
         </form>
 
         <!--
@@ -62,6 +62,12 @@
         Sign out user and navigate to sign in
         LOOK CONSISTANT for every page
     -->
+    </div>
+
+	<div class="footer">
+        <form action="signIn.html">
+            <button type="submit" id="signOut" class="btn signout">Sign Out</button>
+        </form>
     </div>
 
 </body>
