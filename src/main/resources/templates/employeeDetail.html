@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" type="text/css" href="/static/styles/master.css">
-    <!--<link rel="stylesheet" type="text/css" href="/styles/employeeDetail.css">-->
+    <link rel="stylesheet" type="text/css" href="/styles/mainMenu.css">
 
     <script type="text/javascript" src="/scripts/master.js" defer></script>
-    <!--<script type="text/javascript" src="/scripts/employeeDetail.js" defer></script>-->
+    <script type="text/javascript" src="/scripts/employeeDetail.js" defer></script>
 </head>
 
 <body>
@@ -42,26 +42,40 @@
 
             <label for="empType">Employee Type:</label>
             <select id="empType">
+                    <!--<option value="" selected="selected"></option>-->
                     <option value="Cashier"></option>
                     <option value="Shift Manager"></option>
                     <option value="General Manager"></option>
             </select>
-            <br><br>
+            <br><p id='error1'></p><br>
 
             <!--
             Button element w/ text: "Save"
                 HTTP PUT request to server
+            PUT
+            Host: url-where-sent
+            {
+                "fName": fName
+                "lName": lName
+                "password": password
+                "empType": empType
+            }
+            see function ajaxPut in master.js
             -->
-            <button type="submit">Save</button>
-            <button type="onclick" formmethod="/">Sign Out</button>
+            <button type="submit" id="saveButton" class="btn">Save</button>
         </form>
 
+    </div>
         <!--
-    Sign Out:
+        Sign Out:
         Use image with design icon
         Sign out user and navigate to sign in
         LOOK CONSISTANT for every page
-    -->
+        -->
+    <div class="footer">
+        <form action="signIn.html">
+            <button type="submit" id="signOut" class="btn signout">Sign Out</button>
+        </form>
     </div>
 
 </body>
