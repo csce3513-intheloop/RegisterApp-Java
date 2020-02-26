@@ -14,10 +14,27 @@ import edu.uark.registerapp.models.entities.ActiveUserEntity;
 import edu.uark.registerapp.models.entities.EmployeeEntity;
 import edu.uark.registerapp.models.repositories.EmployeeRepository;
 
-public class  ActiveEmployeeExistsQuery implements ResultCommandInterface<ActiveUserEntity> {
-    @Override
-    public ActiveUserEntity execute() {
-        this.validateProperties();
+public class  ActiveEmployeeExistsQuery {
+    /*@Override
+    public void execute() {
+        final Optional<EmployeeEntity> employeeEntity =
+            this.employeeRepository.findByEmployeeId(this.employeeId);
+        if(employeeRepository.existsByIsActive(true)) { 
+        } else {
+            throw new NotFoundException("Employee");
+        }
+    
+    }*/
+    
+    public boolean check(){
         
+		if(employeeRepository.existsByIsActive(true)) {
+            return true; 
+        } else {
+            throw new NotFoundException("Employee");
+        }
     }
+    //private int employeeId;
+    @Autowired
+	private EmployeeRepository employeeRepository;
 }
