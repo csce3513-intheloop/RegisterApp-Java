@@ -7,8 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="static/styles/master.css">
 	<link rel="stylesheet" type="text/css" href="mainMenu.css">
 
-	<script type="text/javascript" src="/scripts/master.js" defer></script>
-	<script type="text/javascript" src="/scripts/mainMenu.js" defer></script>
+	<script type="text/javascript" src="static/scripts/master.js" defer></script>
+	<script type="text/javascript" src="static/scripts/mainMenu.js" defer></script>
 </head>
 
 <body>
@@ -25,12 +25,12 @@
 		<!-- TODO: Add the various action button elements -->
 		<form id="mainMenu">
 			<button type="button" id="startTxn" class="btn">Start Txn</button><br>
-			<button type="button" id="startTxn" class="btn">Product List</button><br>
-			<button type="button" id="startTxn" class="btn">Emp Details</button><br>
+			<button type="button" id="viewProducts" onclick="location.assign('productListing.html')" class="btn">View Products</button><br>
+			<button type="button" id="empDetails" onclick="location.assign('productDetail.html')" class="btn">Emp Details</button><br>
+			<button type="button" id="salesReport" class="btn">Sales report</button><br>
 			<button type="button" id="cashierReport" class="btn">Cashier Report</button><br><br>
 		</form>
 	</div>
-
 
 
 	<div class="footer">
