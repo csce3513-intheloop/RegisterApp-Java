@@ -1,56 +1,26 @@
 package edu.uark.registerapp.controllers;
 
-import java.util.Map;
-import java.util.Optional;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.uark.registerapp.controllers.enums.ViewNames;
-import edu.uark.registerapp.commands.employees.helpers.ActiveEmployeeExistsQuery;
-import edu.uark.registerapp.controllers.enums.ViewModelNames;
-import edu.uark.registerapp.models.api.EmployeeSignIn;
-
 
 @Controller
 @RequestMapping(value = "/")
 public class SignInRouteController extends BaseRouteController {
-	// TODO: Route for initial page load
-	@RequestMapping(method = RequestMethod.GET)
-	public ModelAndView start(@RequestParam final Map<String, String> queryParameters) {
-		
-		// final Optional<ActiveEmployeeExistsQuery> ActiveEmployeeExistsQuery =
-		// 	this.getCurrentUser(request);
-		
-		// if (!ActiveEmployeeExistsQuery.isPresent()) {
-		// 	return this.buildInvalidSessionResponse();
-		// }
-		
-		ModelAndView modelAndView =
-			this.setErrorMessageFromQueryString(
-				new ModelAndView(ViewNames.MAIN_MENU.getViewName()),
-				queryParameters);
-
-		modelAndView.addObject(
-			ViewModelNames.IS_ELEVATED_USER.getValue(),
-			true);
-		
-		return modelAndView;
-	}
-
-
+	// TODO: Route for initial page load 
 
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-	// TODO: Define an object that will represent the sign in request and add it as a parameter here
-	public ModelAndView performSignIn(EmployeeSignIn employeeSignin, HttpServletRequest request){
-			
-		
+	public ModelAndView performSignIn(
+		// TODO: Define an object that will represent the sign in request and add it as a parameter here
+		HttpServletRequest request
+	) {  
+
 		// TODO: Use the credentials provided in the request body
 		//  and the "id" property of the (HttpServletRequest)request.getSession() variable
 		//  to sign in the user
