@@ -22,7 +22,7 @@ public class ProductByLookupCodeQuery implements ResultCommandInterface<Product>
 		final Optional<ProductEntity> productEntity =
 			this.productRepository.findByLookupCode(this.lookupCode);
 		if (productEntity.isPresent()) {
-			return new Product(productEntity.get());
+			return new Product(productEntity.get()); 
 		} else {
 			throw new NotFoundException("Product");
 		}

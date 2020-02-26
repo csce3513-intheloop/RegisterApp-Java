@@ -3,7 +3,7 @@ $ "git status" will show what files differs from local and master
 
 $ "git add ." will add every file that differs to be uploaded. You can specify specific files or folder to be added, for example this will only add employeeDetail.html "git add .\src\main\resources\templates\employeeDetail.html"
 
-$ "git commmit -m "Comment Here"" will commit on github, with your message to explain the changes.
+$ "git commit -m "Comment Here"" will commit on github, with your message to explain the changes.
 
 $ "git push -u origin master" will push to the master
 
