@@ -52,8 +52,17 @@
             <!--
             Button element w/ text: "Save"
                 HTTP PUT request to server
+            PUT
+            Host: url-where-sent
+            {
+                "fName": fName
+                "lName": lName
+                "password": password
+                "empType": empType
+            }
+            see function ajaxPut in master.js
             -->
-            <button type="submit" class="btn">Save</button>
+            <button type="submit" id="saveButton" class="btn">Save</button>
         </form>
 
         <!--
