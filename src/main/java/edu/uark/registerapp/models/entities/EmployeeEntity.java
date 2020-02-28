@@ -18,12 +18,12 @@ import edu.uark.registerapp.commands.employees.helpers.EmployeeHelper;
 import edu.uark.registerapp.models.api.Employee;
 
 @Entity
-@Table(name="employee")
+@Table(name = "employee")
 public class EmployeeEntity {
-    @Id
-    @Column(name="id", updatable = false)
-    @GeneratedValue(strategy=GenerationType.AUTO)
-    private final UUID id;
+	@Id
+	@Column(name = "id", updatable = false)
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private final UUID id;
 
 	public UUID getId() {
 		return this.id;
@@ -126,9 +126,7 @@ public class EmployeeEntity {
 			this.setManagerId(apiEmployee.getManagerId());
 		}
 		if (!StringUtils.isBlank(apiEmployee.getPassword())) {
-			this.setPassword(
-				EmployeeHelper.hashPassword(
-					apiEmployee.getPassword()));
+			this.setPassword(EmployeeHelper.hashPassword(apiEmployee.getPassword()));
 		}
 
 		apiEmployee.setId(this.getId());
@@ -150,15 +148,16 @@ public class EmployeeEntity {
 	}
 
 	public EmployeeEntity(final Employee apiEmployee) {
-    	this.id = new UUID(0, 0);
+		this.id = new UUID(0, 0);
 		this.isActive = apiEmployee.getIsActive();
 		this.lastName = apiEmployee.getLastName();
 		this.firstName = apiEmployee.getFirstName();
 		this.classification = apiEmployee.getClassification();
 		this.password = EmployeeHelper.hashPassword(apiEmployee.getPassword());
-		this.managerId = (
-			(apiEmployee.getManagerId() != null)
-				? apiEmployee.getManagerId()
-				: new UUID(0, 0));
+		this.managerId = ((apiEmployee.getManagerId() != null) ? apiEmployee.getManagerId() : new UUID(0, 0));
+	}
+
+	public static EmployeeEntity get() {
+		return null;
 	}
 }
