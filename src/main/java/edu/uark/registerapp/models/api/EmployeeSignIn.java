@@ -6,24 +6,24 @@ public class EmployeeSignIn{
     private String password;
     private String employeeId;
 
-  public EmployeeSignIn(){
-    this.password = StringUtils.EMPTY;
+	public EmployeeSignIn(){
+		this.password = StringUtils.EMPTY;
 		this.employeeId = StringUtils.EMPTY;
-  }
+	}
 
-  public String getEmployeeId() {
+	public String getEmployeeId() {
 		return this.employeeId;
-  }
-  public String setEmployeeId(String employeeId) {
+	}
+
+	public void setEmployeeId(String employeeId) {
 		this.employeeId = employeeId;
-		return this.employeeId;
+	}
+
+	public String getPassword() {
+		return this.password;
 	}
 	
-  public String getPassword() {
-		return this.password;
-	}
-	public String setPassword(String password) {
+	public void setPassword(String password) {
 		this.password = password;
-		return this.password;
 	}
 }

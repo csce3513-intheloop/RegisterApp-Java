@@ -33,7 +33,7 @@ function validateForm() {
         return false;
     }
 
-    var str = "INSERT INTO employee";
+    if(ajaxGet())
 
 	return true;
 }
@@ -86,7 +86,7 @@ function saveActionClick(event) {
 			}
 		});
 	}*/
-};
+//};
 // End save
 
 //TODO:

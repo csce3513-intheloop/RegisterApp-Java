@@ -9,19 +9,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import edu.uark.registerapp.controllers.enums.ViewNames;
+import edu.uark.registerapp.models.api.Employee;
 
 @Controller
 @RequestMapping(value = "/")
 public class SignInRouteController extends BaseRouteController {
 	// TODO: Route for initial page load 
+	public ModelAndView start() {
+		return (new ModelAndView(ViewNames.signIn.getViewName())).addObject(ViewModelNames.EMPLOYEE.getValue(),
+			   (new Employee()).setEmployeeId(StringUtils.EMPTY).setCount(0));
 
+	}
 	@RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public ModelAndView performSignIn(
 		// TODO: Define an object that will represent the sign in request and add it as a parameter here
+
 		HttpServletRequest request
 	) {  
 
-		// TODO: Use the credentials provided in the request body
+		// TODO: Use the credentials provided in the request body rawr
 		//  and the "id" property of the (HttpServletRequest)request.getSession() variable
 		//  to sign in the user
 
