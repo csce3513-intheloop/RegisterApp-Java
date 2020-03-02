@@ -69,6 +69,10 @@ public class ActiveUserEntity {
 		return this.sessionKey;
 	}
 
+	public String get() {
+		return this;
+	}
+
 	public ActiveUserEntity setSessionKey(final String sessionKey) {
     	this.sessionKey = sessionKey;
     	return this;

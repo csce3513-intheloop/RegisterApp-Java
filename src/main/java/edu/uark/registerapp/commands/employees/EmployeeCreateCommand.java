@@ -33,7 +33,7 @@ public class EmployeeCreateCommand implements ResultCommandInterface<Employee> {
 
     // Helper methods
     private void validateProperties() {
-        if (StringUtils.isBlank(this.apiEmployee.getLookupCode())) {
+        if (this.apiEmployee.validate()) { //mitch
             throw new UnprocessableEntityException("lookupcode");
         }
     }
@@ -41,7 +41,7 @@ public class EmployeeCreateCommand implements ResultCommandInterface<Employee> {
     @Transactional
     private EmployeeEntity createEmployeeEntity() {
         final Optional<EmployeeEntity> queriedEmployeeEntity = this.employeeRepository
-                .findByLookupCode(this.apiEmployee.getLookupCode());
+                .existsByEmployeeId(apiEmployee.getEmployeeId());
 
         if (queriedEmployeeEntity.isPresent()) {
             // Lookupcode already defined for another employee.

@@ -16,7 +16,7 @@ import edu.uark.registerapp.models.entities.ProductEntity;
 import edu.uark.registerapp.models.repositories.ProductRepository;
 
 @Service
-public class ProductUpdateCommand implements ResultCommandInterface<Product> {
+public abstract class ProductUpdateCommand implements ResultCommandInterface<Product> {
 	@Transactional
 	@Override
 	public Product execute() {

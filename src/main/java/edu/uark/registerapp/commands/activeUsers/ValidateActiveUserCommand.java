@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 
 import edu.uark.registerapp.commands.ResultCommandInterface;
 import edu.uark.registerapp.commands.exceptions.UnauthorizedException;
+import edu.uark.registerapp.models.api.Employee;
 import edu.uark.registerapp.models.entities.ActiveUserEntity;
 import edu.uark.registerapp.models.repositories.ActiveUserRepository;
 
 @Service
-public class ValidateActiveUserCommand implements ResultCommandInterface<ActiveUserEntity> {
+public abstract class ValidateActiveUserCommand implements ResultCommandInterface<ActiveUserEntity> {
 	@Override
-	public ActiveUserEntity execute() {
+	public Employee execute() {
 		final Optional<ActiveUserEntity> activeUserEntity =
 			this.activeUserRepository.findBySessionKey(this.sessionKey);
 
