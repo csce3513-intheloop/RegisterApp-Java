@@ -12,8 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("signOut").addEventListener("click", signOutActionClickHandler());
 });
 
-//!!TODO-Should be defined in a common module that can be accessed 
-//from each of the client-side modules (a view/script(s)/style(s) triplet)
+
 
 
 
