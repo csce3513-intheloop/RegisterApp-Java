@@ -22,8 +22,10 @@
 		</div>
 
 		<div class="productsWrapper">
-			<div>
-				<a href="/productDetail/" class="button">Create New</a>
+			<
+			<!-- If not an elevated user, the “Create New” button should not be visible-->
+			<div id="elevatedUser" th:class="${empployee.isElevatedUser(activeUserEntity.get())} ?  'button' : hidden"></div>
+				<a href="/productDetail/" id = create class="button">Create New</a>
 			</div>
 
 			<br /><br />

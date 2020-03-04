@@ -22,19 +22,31 @@
 			<h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
 		</div>
 
+		<!--Non-managers shouldn't see the report buttons or the employee create/details button-->
+		<div id="elevatedUser" th:class="${empployee.isElevatedUser(activeUserEntity.get())} ?  'empDetails' : hidden">		
+		</div>
+
+		<div id="elevatedUser" th:class="${empployee.isElevatedUser(activeUserEntity.get())} ?  'salesReport' : hidden">		
+		</div>
+
+		<div id="elevatedUser" th:class="${empployee.isElevatedUser(activeUserEntity.get())} ?  'cashierReport' : hidden">		
+		</div>
+
 		<!-- TODO: Add the various action button elements -->
 		<form id="mainMenu">
 			<button type="button" id="startTxn" class="btn">Start Txn</button><br>
-			<button type="button" id="viewProducts" onclick="location.assign('productListing.html')" class="btn">View Products</button><br>
-			<button type="button" id="empDetails" onclick="location.assign('productDetail.html')" class="btn">Emp Details</button><br>
-			<button type="button" id="salesReport" class="btn">Sales report</button><br>
-			<button type="button" id="cashierReport" class="btn">Cashier Report</button><br><br>
+			<button type="button" id="viewProducts" class="btn">View Products</button><br>
+			<button type="button" id="empDetails" class="btn empDetails">Emp Details</button><br>
+			<!--<button type="button" id="viewProducts" onclick="location.assign('productListing.html')" class="btn">View Products</button><br>
+			<button type="button" id="empDetails" onclick="location.assign('productDetail.html')" class="btn empDetails">Emp Details</button><br>-->
+			<button type="button" id="salesReport" class="btn salesReport">Sales report</button><br>
+			<button type="button" id="cashierReport" class="btn cashierReport">Cashier Report</button><br><br>
 		</form>
 	</div>
 
 
 	<div class="footer">
-	<form action="signIn.html">
+	<form action="/signIn">
 		<button type="submit" id="signOut" class="btn signout">Sign Out</button>
 	</form>
 	</div>
