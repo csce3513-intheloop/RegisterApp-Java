@@ -1,4 +1,4 @@
-package edu.uark.registerapp.commands.employees.helpers;
+package edu.uark.registerapp.commands.employees;
 
 import java.util.Optional;
 
@@ -29,7 +29,7 @@ public class  ActiveEmployeeExistsQuery {
     
     public boolean check(){
         
-		if(employeeRepository.existsByIsActive(true)) {
+		if(EmployeeRepository.existsByIsActive(true)) {
             return true; 
         } else {
             throw new NotFoundException("Employee");
@@ -37,5 +37,6 @@ public class  ActiveEmployeeExistsQuery {
     }
     //private int employeeId;
     @Autowired
-	private EmployeeRepository employeeRepository;
+    private EmployeeRepository EmployeeRepository;
+    
 }
