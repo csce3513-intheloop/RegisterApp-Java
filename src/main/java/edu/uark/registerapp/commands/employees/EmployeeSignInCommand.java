@@ -4,14 +4,14 @@ import java.util.Arrays;
 import java.util.Optional;
 import java.util.UUID;
 
-import org.apache.commons.lang3.StringUtils;
+//import org.apache.commons.lang3.StringUtils;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 //import org.springframework.data.repository.CrudRepository;
 
 //import edu.uark.registerapp.commands.ResultCommandInterface;
-import edu.uark.registerapp.commands.VoidCommandInterface;
+//import edu.uark.registerapp.commands.VoidCommandInterface;
 //import edu.uark.registerapp.commands.exceptions.UnprocessableEntityException;
 
 //import edu.uark.registerapp.models.api.Employee;
@@ -25,21 +25,22 @@ import edu.uark.registerapp.models.repositories.ActiveUserRepository;
 
 
 
-public class EmployeeSignInCommand implements VoidCommandInterface{
+public class EmployeeSignInCommand{
+    // implements VoidCommandInterface{
     private EmployeeSignIn employeeSignIn;
     private String sessionKey;
     private EmployeeRepository EmployeeRepository;
     private EmployeeEntity EmployeeEntity;
-    private int employeeId;
+    private UUID employeeId;
     private ActiveUserRepository ActiveUserRepository;
     private ActiveUserEntity ActiveUserEntity;
     
-    public EmployeeSignInCommand execute() {
+    /*public EmployeeSignInCommand execute() {
         final Optional<EmployeeEntity> EmployeeEntity = this.EmployeeRepository.findByEmployeeId(this.employeeId);
-        final Optional<ActiveUserEntity> ActiveUserEntity =
-            this.ActiveUserRepository.findBySessionKey(this.sessionKey);
+        final Optional<ActiveUserEntity> ActiveUserEntity = this.ActiveUserRepository.findBySessionKey(this.sessionKey);
+    
         
-    }
+    }*/
 
     public boolean IDcheck(){
         if(employeeSignIn.getEmployeeId() != ""){
@@ -80,14 +81,15 @@ public class EmployeeSignInCommand implements VoidCommandInterface{
 			this.ActiveUserRepository.findByEmployeeId(this.productId);
 		if (queriedActiveUserEntity.isPresent()) {
             ActiveUserEntity.setSessionKey(this.sessionKey);
-            return this.ActiveUserRepository.save(ActiveUserEntity);
+            return this.ActiveUserRepository.save(this.ActiveUserEntity);
         }
         else{
-            return this.ActiveUserRepository.save(new ActiveUserEntity());
+            ActiveUserEntity = new ActiveUserEntity();
+            ActiveUserEntity.setSessionKey(this.sessionKey);
+            return this.ActiveUserRepository.save(ActiveUserEntity);
         }
 
-		//return this.ActiveUserRepository.save(ActiveUserEntity);
-	}
+    }
     
     
 }
