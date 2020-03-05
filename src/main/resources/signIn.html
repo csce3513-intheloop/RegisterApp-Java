@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="mainMenu.css">
 
     <script type="text/javascript" src="static/scripts/master.js" defer></script>
-    <!--<script type="text/javascript" src="static/scripts/signIn.js" defer></script>-->
+    <script type="text/javascript" src="static/scripts/signIn.js" defer></script>
 </head>
 
     <div class="header">
@@ -22,6 +22,7 @@
             <h4 id="errorMessage" class="error-message" th:text="${errorMessage}"></h4>
         </div>
 
+
         <form action="/MainMenu" method="POST" name="signIn" class="inputContent">
             <!-- TODO: Form input elements -->
             <lable for="employeeId">Employee ID :</lable>
@@ -29,7 +30,7 @@
             <lable for="password">Password :&nbsp;&ensp;&ensp;&nbsp;</lable>
             <input type="password" id="password" name="password"><br><br>
             <input type="submit" value="Sign In" class="btn">
-            <div style="color:rgb(51, 1, 1)" id="msg"></div>
+            <div style="color:rgb(51, 1, 1)" id="msg">milk!</div>
         </form>
     </div>
 

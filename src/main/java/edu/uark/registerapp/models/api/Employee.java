@@ -111,6 +111,13 @@ public class Employee extends ApiResponse {
 		return this;
 	}
 
+	public boolean validate() {
+		if(this.firstName == stringutils.EMPTY || this.lastName == stringutils.EMPTY || this.password == stringutils.EMPTY)
+			return false;
+		else
+			return true;
+	}
+
 	private boolean isInitialEmployee;
 	
 	public boolean getIsInitialEmployee() {

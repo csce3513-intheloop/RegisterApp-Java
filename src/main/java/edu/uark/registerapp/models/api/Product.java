@@ -29,6 +29,7 @@ public class Product extends ApiResponse {
 		return this;
 	}
 
+	
 	private int count;
 
 	public int getCount() {

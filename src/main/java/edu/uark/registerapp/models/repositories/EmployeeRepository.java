@@ -9,7 +9,7 @@ import edu.uark.registerapp.models.entities.EmployeeEntity;
 
 public interface EmployeeRepository extends CrudRepository<EmployeeEntity, UUID> {
 	boolean existsByIsActive(boolean isActive);
-	boolean existsByEmployeeId(int employeeId);
+	boolean existsByEmployeeId(String string);
 	Optional<EmployeeEntity> findById(UUID id);
 	Optional<EmployeeEntity> findByEmployeeId(int employeeId);
 }

@@ -31,8 +31,9 @@ public class ProductRestController extends BaseRestController {
 		final ApiResponse elevatedUserResponse = this.redirectUserNotElevated(request, response,
 				ViewNames.PRODUCT_LISTING.getRoute());
 
-		if (!elevatedUserResponse.getRedirectUrl().equals(StringUtils.EMPTY)) {
-			return elevatedUserResponse;
+		if (!elevatedUserResponse.getRedirectUrl().equals("")) {
+			return this.redirectUserNotElevated(request, response,
+			ViewNames.PRODUCT_LISTING.getRoute());
 		}
 
 		return this.productCreateCommand.setApiProduct(product).execute();
