@@ -33,19 +33,31 @@ public class EmployeeCreateCommand implements ResultCommandInterface<Employee> {
 
     // Helper methods
     private void validateProperties() {
+<<<<<<< HEAD
         if (this.apiEmployee.validate()) { //mitch 
             throw new UnprocessableEntityException("lookupcode");
+=======
+        if (StringUtils.isBlank(this.apiEmployee.getFirstName())) {
+            throw new UnprocessableEntityException("firstname");
+        }
+        if (StringUtils.isBlank(this.apiEmployee.getLastName())) {
+            throw new UnprocessableEntityException("lastname");
+>>>>>>> 8e8c10c87b0c55be0176617c9b270ed2271bf490
         }
     }
 
     @Transactional
     private EmployeeEntity createEmployeeEntity() {
         final Optional<EmployeeEntity> queriedEmployeeEntity = this.employeeRepository
+<<<<<<< HEAD
                 .existsByEmployeeId(apiEmployee.getEmployeeId());
+=======
+                .findById(this.apiEmployee.getId());
+>>>>>>> 8e8c10c87b0c55be0176617c9b270ed2271bf490
 
         if (queriedEmployeeEntity.isPresent()) {
             // Lookupcode already defined for another employee.
-            throw new ConflictException("lookupcode");
+            throw new ConflictException("Id");
         }
 
         return this.employeeRepository.save(new EmployeeEntity(apiEmployee));

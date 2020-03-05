@@ -6,7 +6,11 @@ public class EmployeeSignIn{
     private String password;
     private String employeeId;
 
+<<<<<<< HEAD
 	public EmployeeSignIn(){
+=======
+  public EmployeeSignIn(){
+>>>>>>> 8e8c10c87b0c55be0176617c9b270ed2271bf490
 		this.password = StringUtils.EMPTY;
 		this.employeeId = StringUtils.EMPTY;
 	}

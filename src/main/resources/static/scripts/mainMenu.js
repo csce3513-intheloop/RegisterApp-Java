@@ -10,12 +10,20 @@ document.addEventListener("DOMContentLoaded", () => {
     
     document.getElementById("cashierReport").addEventListener("click", function()
     { displayError(errorMessage);});
-    
+
+    document.getElementById("viewProducts").addEventListener("click", listingClick);
+
+    document.getElementById("empDetails").addEventListener("click", detailClick);
+
     document.getElementById("signOut").addEventListener("click", signOutActionClickHandler());
 });
 
-//!!TODO-Should be defined in a common module that can be accessed 
-//from each of the client-side modules (a view/script(s)/style(s) triplet)
+function listingClick() {
+	window.location.assign("/productListing/");
+}
 
+function detailClick() {
+	window.location.assign("/productDetail/");
+}
 
 

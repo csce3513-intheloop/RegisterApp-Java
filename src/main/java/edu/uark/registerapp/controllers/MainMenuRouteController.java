@@ -13,6 +13,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import edu.uark.registerapp.controllers.enums.ViewModelNames;
 import edu.uark.registerapp.controllers.enums.ViewNames;
+import edu.uark.registerapp.controllers.BaseRouteController;
 import edu.uark.registerapp.models.entities.ActiveUserEntity;
 
 @Controller
@@ -37,8 +38,7 @@ public class MainMenuRouteController extends BaseRouteController {
 
 		// TODO: Examine the ActiveUser classification if you want this information
 		modelAndView.addObject(
-			ViewModelNames.IS_ELEVATED_USER.getValue(),
-			true);
+			ViewModelNames.IS_ELEVATED_USER.getValue(), this.isElevatedUser(activeUserEntity.get()));
 		
 		return modelAndView;
 	}
