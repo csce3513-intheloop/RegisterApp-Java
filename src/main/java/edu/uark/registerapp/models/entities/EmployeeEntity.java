@@ -31,9 +31,9 @@ public class EmployeeEntity {
 
 	@Column(name = "employeeid", insertable = false, updatable = false)
 	@Generated(GenerationTime.INSERT)
-	private String employeeId;
+	private int employeeId;
 
-	public String getEmployeeId() {
+	public int getEmployeeId() {
 		return this.employeeId;
 	}
 
