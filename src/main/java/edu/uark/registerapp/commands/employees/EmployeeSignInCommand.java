@@ -61,7 +61,7 @@ public class EmployeeSignInCommand{
     }
      
     private boolean queryID(){
-        if(EmployeeRepository.existsByEmployeeId(EmployeeEntity.getEmployeeId())) {
+        if(EmployeeRepository.existsByEmployeeId(employeeSignIn.getEmployeeId())) {
             if(Arrays.equals(edu.uark.registerapp.commands.employees.helpers.EmployeeHelper
                     .hashPassword(employeeSignIn.getPassword()), EmployeeEntity.getPassword())) {
                         return true;
