@@ -69,7 +69,7 @@ public class ActiveUserEntity {
 		return this.sessionKey;
 	}
 
-	public String get() {
+	public ActiveUserEntity get() {
 		return this;
 	}
 
