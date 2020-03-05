@@ -33,7 +33,7 @@ public class EmployeeCreateCommand implements ResultCommandInterface<Employee> {
 
     // Helper methods
     private void validateProperties() {
-        if (this.apiEmployee.validate()) { //mitch
+        if (this.apiEmployee.validate()) { //mitch 
             throw new UnprocessableEntityException("lookupcode");
         }
     }
