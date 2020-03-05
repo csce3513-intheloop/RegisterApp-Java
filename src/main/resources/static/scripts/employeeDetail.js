@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-	// TODO: Anything you want to do when the page is loaded?
+	getSaveActionElement().addEventListener("click", saveActionClick);
 });
 
 function validateForm() {
@@ -38,8 +38,7 @@ function validateForm() {
 	return true;
 }
 
-// TODO: Save
-/*
+
 function saveActionClick(event) {
 	if (!validateSave()) {
 		return;
@@ -50,69 +49,91 @@ function saveActionClick(event) {
 
 	const firstName = getfName();
 	const firstNameIsDefined = ((firstName != null) && (firstName.trim() !== ""));
-	const saveActionUrl = ("/api/product/"
+	const saveActionUrl = ("/api/employee/"
 		+ (firstNameIsDefined ? firstName : ""));     //What is the url to save
-	const saveProductRequest = {
+	const saveEmployeetRequest = {
 		fname: firstName,
 		lname: getlName(),
-		password: getPassword()
+		password: getPassword(),
+		empType: getEmpType()
 	};
-//Above still need check
-//Below is unchanged from productDetail
-/*
+
 	if (firstNameIsDefined) {
-		ajaxPut(saveActionUrl, saveProductRequest, (callbackResponse) => {
+		ajaxPut(saveActionUrl, saveEmployeetRequest, (callbackResponse) => {
 			saveActionElement.disabled = false;
 
 			if (isSuccessResponse(callbackResponse)) {
-				displayProductSavedAlertModal();
+				displayEmployeeID();
 			}
 		});
 	} else {
-		ajaxPost(saveActionUrl, saveProductRequest, (callbackResponse) => {
+		ajaxPost(saveActionUrl, saveEmployeetRequest, (callbackResponse) => {
 			saveActionElement.disabled = false;
 
 			if (isSuccessResponse(callbackResponse)) {
-				displayProductSavedAlertModal();
+				displayEmployeeID();
 
 				if ((callbackResponse.data != null)
 					&& (callbackResponse.data.id != null)
 					&& (callbackResponse.data.id.trim() !== "")) {
 
-					document.getElementById("deleteActionContainer").classList.remove("hidden");
+					document.getElementById("empRecordID").classList.remove("hidden");
 
-					setProductId(callbackResponse.data.id.trim());
+					setfName(callbackResponse.data.fName.trim());
+					setlName(callbackResponse.data.lName.trim());
+					setPassword(callbackResponse.data.password.trim());
+					setEmpType(callbackResponse.data.empType.trim());
 				}
 			}
 		});
-	}*/
+	}
 };
+
+function displayEmployeeID() {
+	const empIdElement = getEmpRecordID();
+	empIdElement.style.display = "none";
+	empIdElement.style.display = "block";
+}
 // End save
 
-//TODO:
-/*After save AND employeeID input = hidden,
-    display employeeID input but remain disabled
-*/
-
 // Getters and setters
+function getEmpRecordID() {
+	return document.getElementById("empRecordID");
+}
+
 function getfName() {
 	return document.getElementById("fName");
+}
+function setfName(fName) {
+	getfName().value = fName;
 }//First Name
 
 function getlName() {
 	return document.getElementById("lName");
+}
+function setlName(lName) {
+	getlName().value = lName;
 }//Last Name
 
 function getPassword() {
 	return document.getElementById("password");
+}
+function setPassword(password) {
+	getPassword().value = password;
 }//Password
 
 function getConfPassword() {
 	return document.getElementById("confirmPassword");
+}
+function setConfPassword(confirmPassword){
+	getConfPassword().value = confirmPassword;
 }//Confirm Password
 
 function getEmpType() {
     return document.getElementById("empType");
-}   //Employee Type
+}
+function setEmpType(empType) {
+	getEmpType().value = empType;
+}//Employee Type
 
 // End getters and setters
