@@ -14,7 +14,7 @@ import edu.uark.registerapp.models.repositories.ActiveUserRepository;
 @Service
 public abstract class ValidateActiveUserCommand implements ResultCommandInterface<ActiveUserEntity> {
 	@Override
-	public Employee execute() {
+	public ActiveUserEntity execute() {
 		final Optional<ActiveUserEntity> activeUserEntity =
 			this.activeUserRepository.findBySessionKey(this.sessionKey);
 
