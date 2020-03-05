@@ -112,7 +112,7 @@ public class Employee extends ApiResponse {
 	}
 
 	public boolean validate() {
-		if(this.firstName == stringutils.EMPTY || this.lastName == stringutils.EMPTY || this.password == stringutils.EMPTY)
+		if(this.firstName == StringUtils.EMPTY || this.lastName == StringUtils.EMPTY || this.password == StringUtils.EMPTY)
 			return false;
 		else
 			return true;
