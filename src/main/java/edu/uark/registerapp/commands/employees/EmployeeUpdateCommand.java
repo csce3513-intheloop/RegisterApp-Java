@@ -38,9 +38,6 @@ public class EmployeeUpdateCommand implements ResultCommandInterface<Employee> {
 
     // Helper methods
     private void validateProperties() {
-        if (this.apiEmployee.validate()) {
-            throw new UnprocessableEntityException("lookupcode");
-        }
         if (StringUtils.isBlank(this.apiEmployee.getFirstName())) {
             throw new UnprocessableEntityException("firstname");
         }
