@@ -7,7 +7,7 @@ public class EmployeeSignIn{
     private String employeeId;
 
   public EmployeeSignIn(){
-    this.password = StringUtils.EMPTY;
+		this.password = StringUtils.EMPTY;
 		this.employeeId = StringUtils.EMPTY;
   }
 

@@ -20,7 +20,7 @@ public class ProductDeleteCommand implements VoidCommandInterface {
 		final Optional<ProductEntity> productEntity =
 			this.productRepository.findById(this.productId);
 		if (!productEntity.isPresent()) { // No record with the associated record ID exists in the database.
-			throw new NotFoundException("Product");
+			throw new NotFoundException("employeeId");
 		}
 
 		this.productRepository.delete(productEntity.get());
