@@ -12,7 +12,7 @@ import edu.uark.registerapp.models.entities.ActiveUserEntity;
 import edu.uark.registerapp.models.repositories.ActiveUserRepository;
 
 @Service
-public abstract class ValidateActiveUserCommand implements ResultCommandInterface<ActiveUserEntity> {
+public class ValidateActiveUserCommand implements ResultCommandInterface<ActiveUserEntity> {
 	@Override
 	public ActiveUserEntity execute() {
 		final Optional<ActiveUserEntity> activeUserEntity =
