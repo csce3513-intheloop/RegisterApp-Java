@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 function validateForm() {
-<<<<<<< HEAD
 	var employeeId = document.forms["signIn"]["employeeId"].value;
 	var password = document.forms["signIn"]["password"].value;
 
@@ -20,19 +19,6 @@ function validateForm() {
 	}
 
 	return true;
-=======
-
-	var empId =  getEmpId();
-    var pass =  getPassword();
-	
-	if(empId == '' && pass == '') {
-		document.getElementById("msg").innerHTML = "Please help! im dying!";
-		return false;
-	} else {
-		document.getElementById("msg").innerHTML = "u suck!";
-		return true;
-	}
->>>>>>> 7c9f57a4cc6623a76852c79d57bd9d8a110a4c83
 }
 
 function getPassword() {
