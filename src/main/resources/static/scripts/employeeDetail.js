@@ -86,14 +86,8 @@ function saveActionClick(event) {
 				}
 			}
 		});
-<<<<<<< HEAD
-	}*/
-//};
-// End save
-=======
 	}
 };
->>>>>>> 8e8c10c87b0c55be0176617c9b270ed2271bf490
 
 function displayEmployeeID() {
 	const empIdElement = getEmpRecordID();
